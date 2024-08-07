@@ -8,7 +8,7 @@ import { FileUpdateSchema } from './schema';
 const router = express.Router()
 const { validate } = new Validator({});
 
-router.post("/upload", (req, res) => filesControllers.uploadFile(req, res))
+router.post("/upload", checkAuthMiddleware, (req, res) => filesControllers.uploadFile(req, res))
 
 router.delete("/delete/:id", checkAuthMiddleware, (req:Request<{id:string}>, res) => filesControllers.deleteFile(req, res))
 
