@@ -1,14 +1,10 @@
-type UserData = {
-    fullname: string,
-    password: string,
-    id: string,
-    userID: number,
+declare interface UserData extends UserI {
     sessionID: string,
     refreshToken: string
 }
 
 declare interface SignUpReq {
-    data: Omit<UserData, 'userID', 'sessionID', 'refreshToken'>
+    data: Omit<UserData, 'userID' | 'sessionID' | 'refreshToken'>
 }
 
 declare interface UserID {

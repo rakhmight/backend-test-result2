@@ -1,30 +1,40 @@
 import { AllowedSchema } from "express-json-validator-middleware";
- 
+
+export const AuthHeadersSchema = {
+    type: "object",
+    properties: {
+      Authorization: {
+        type: "string",
+        description: "Access token (Bearer ...)"
+      },
+    },
+    required: ["Authorization"],
+  };
+
 export const SignupSchema: AllowedSchema = {
     type: "object",
     properties: {
         data: {
             type: "object",
             properties: {
-                fullname: {
-                    type: "string",
+                fullName: {
+                    type: "string"
                 },
                 password: {
                     type: "string",
-                    minLength: 4,
+                    minLength: 4
                 },
                 id: {
-                    type: "string",
-                    // format: "email",
+                    type: "string"
                 }
             },
-            required: ["fullname", "password", "id"]
+            required: ["fullName", "password", "id"]
         }
     },
     required: ["data"]
 }
 
-export const SigninSchema = {
+export const SigninSchema: AllowedSchema = {
     type: "object",
     properties: {
         data: {
@@ -45,14 +55,14 @@ export const SigninSchema = {
     required: ["data"]
 }
 
-export const LogoutSchema = {
+export const LogoutSchema: AllowedSchema = {
     type: "object",
     properties: {
         data: {
             type: "object",
             properties: {
                 userID: {
-                    type: "string",
+                    type: "number",
                     // format: "uuid"
                 },
                 sessionID: {
@@ -64,50 +74,4 @@ export const LogoutSchema = {
         }
     },
     required: ["data"]
-}
-
-export const RefreshSchema = {
-    type: "object",
-    properties: {
-        data: {
-            type: "object",
-            properties: {
-                userID: {
-                    type: "string"
-                    // format: "uuid"
-                },
-                sessionID: {
-                    type: "string"
-                    // format: "uuid",
-                },
-                refreshToken: {
-                    type: "string"
-                }
-            },
-            required: ["userID", "sessionID", "refreshToken"]
-        }
-    },
-    required: ["data"]
-}
-
-export const DeleteUserSchema = {
-    type: "object",
-    properties: {
-        id: {
-            type: "number",
-            minimum: 1
-        }
-    },
-    required: ["id"]
-}
-
-export const GetUserSchema = {
-    type: "object",
-    properties: {
-        id: {
-            type: "number",
-            minimum: 1
-        }
-    },
-    required: ["id"]
 }
