@@ -3,5 +3,6 @@ declare interface SequelizeInterface {
 }
 
 declare interface DBInstance  extends SequelizeInterface {
-    users: import('sequelize').ModelCtor<Model<any, any>>
+    users: import('sequelize').ModelCtor<Model<UserI, any>>,
+    files: import('sequelize').ModelCtor<Model<FileI, any>>
 }

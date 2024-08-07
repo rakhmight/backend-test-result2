@@ -13,6 +13,22 @@ export default (sequelize:Sequelize) => {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
+      },
+      size: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      path: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      type: {
+        type: DataTypes.STRING,
+        allowNull: false
       }
     },
     {

@@ -16,7 +16,7 @@ export default (sequelize:Sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      _id: {
+      userID: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
